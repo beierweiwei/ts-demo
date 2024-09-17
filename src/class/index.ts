@@ -69,3 +69,68 @@ class Mycls2 {
     return false
   }
 }
+
+// 类的interface接口
+// implement
+
+interface Country {
+  name:string;
+  capital:string;
+}
+// 或
+type Country1 {
+  name: string;
+  capital: string;
+}
+
+class MyCountry implements Country {
+  name: string
+  capital: string
+  constructor(name: string, capital: string) {
+    this.name = name
+    this.capital = capital
+  }
+} 
+
+// 可选属性
+interface A {
+  x: number;
+  y?: number;
+}
+
+class B implements A {
+  x = 0;
+}
+
+const b = new B();
+// b.y = 10; // 报错
+
+// 类可以声明接口未定义属性
+
+
+// interface 描述的属性或方法都是公开的
+
+// implements后面还可以接另一个类，后面的类被作为接口
+
+
+// 实现多个接口
+
+// interface B extends A {}
+
+// 可访问下修饰符
+
+class Greeter {}
+
+// public
+
+// private
+
+// protected: 只能在类的内部使用该成员，实例无法使用该成员，但是子类内可以使用
+
+// 实例属性的简写形式
+class Point3 {
+  constructor(public x: number, public y: number) {
+    // public不可省略
+  }
+}
+// 除了public修饰符，构造方法的参数名只要有private、protected、readonly修饰符，都会自动声明对应修饰符的实例属性。
