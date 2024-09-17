@@ -71,7 +71,7 @@ class Mycls2 {
 }
 
 // 类的interface接口
-// implement
+// implements
 
 interface Country {
   name:string;
@@ -83,7 +83,7 @@ type Country1 {
   capital: string;
 }
 
-class MyCountry implements Country {
+class MyCountry implements Country { // 或者 Country1
   name: string
   capital: string
   constructor(name: string, capital: string) {
@@ -105,12 +105,18 @@ class B implements A {
 const b = new B();
 // b.y = 10; // 报错
 
+// implements声明并不能替代class的类型声明，只要类的类型通过interface或type的检查即可， 对于一些接口或type中的可选属性，类中如果需要使用就需要声明
+// implements后面可以接类，ts会将类视为接口
+class C implements B {
+  x = 100
+  y? = 200
+}
+
 // 类可以声明接口未定义属性
 
 
 // interface 描述的属性或方法都是公开的
 
-// implements后面还可以接另一个类，后面的类被作为接口
 
 
 // 实现多个接口
