@@ -78,7 +78,7 @@ interface Country {
   capital:string;
 }
 // 或
-type Country1 {
+type Country1 = {
   name: string;
   capital: string;
 }
@@ -90,7 +90,7 @@ class MyCountry implements Country { // 或者 Country1
     this.name = name
     this.capital = capital
   }
-} 
+}
 
 // 可选属性
 interface A {
@@ -129,8 +129,7 @@ class Greeter {}
 
 // public
 
-// private
-
+// private: 只有在类的内部使用，类的实例和继承类无法使用
 // protected: 只能在类的内部使用该成员，实例无法使用该成员，但是子类内可以使用
 
 // 实例属性的简写形式
@@ -140,3 +139,24 @@ class Point3 {
   }
 }
 // 除了public修饰符，构造方法的参数名只要有private、protected、readonly修饰符，都会自动声明对应修饰符的实例属性。
+
+// 静态成员（static），不能在子类和实例中调用，可以被继承。可以使用public,protected,private修饰符,es6 中使用# 表示静态成员
+
+// 抽象类
+// 抽象类不能被实例化
+// 抽象方法和属性必须在派生类中实现
+
+abstract class Animal1 {
+  abstract makeSound(): void
+}
+
+class Dog extends Animal1 {
+  makeSound() {}
+}
+
+
+
+// this 问题
+// 函数的第一个参数可以指定this的类型
+
+// 在类的内部，this本身也可以当作类型使用，表示当前类的实例对象
